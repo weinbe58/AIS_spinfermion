@@ -1,0 +1,326 @@
+Scanning dependencies of target test
+[ 50%] Building CXX object CMakeFiles/test.dir/ML_test.cxx.o
+In file included from /Users/hwchen/Desktop/dcgan/ML_test.cxx:19:
+/Users/hwchen/Desktop/dcgan/spin_fermion.h:251:28: warning: non-void function does not return a value [-Wreturn-type]
+        Pars_type get_pars(void) {}
+                                  ^
+/Users/hwchen/Desktop/dcgan/spin_fermion.h:262:2: note: in instantiation of member function
+      'spin_fermion_chebyshev::spin_fermion<spin_fermion_chebyshev::csr_matrix<double, int>, spin_fermion_chebyshev::Chebyshev,
+      Eigen::Array<double, -1, 3, 1, -1, 3>, std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> > >::get_pars' requested
+      here
+        spin_fermion_1d(const int L,const double g,const double beta,const double mu=0.0,const int M=100) : 
+        ^
+/Users/hwchen/Desktop/dcgan/ML_test.cxx:129:65: note: in instantiation of member function
+      'spin_fermion_chebyshev::spin_fermion_1d<Eigen::Array<double, -1, 3, 1, -1, 3>, std::__1::vector<at::Tensor,
+      std::__1::allocator<at::Tensor> > >::spin_fermion_1d' requested here
+        spin_fermion_chebyshev::spin_fermion_1d<Sample_type,Pars_type> P1(N,g,beta,mu,M);
+                                                                       ^
+In file included from /Users/hwchen/Desktop/dcgan/ML_test.cxx:16:
+/Users/hwchen/Desktop/dcgan/ais.h:139:9: error: no viable overloaded '+='
+                        pars += step;
+                        ~~~~ ^  ~~~~
+/Users/hwchen/Desktop/dcgan/ML_test.cxx:142:6: note: in instantiation of function template specialization
+      'ais::ais_KL<ais::Dist_template<Eigen::Array<double, -1, 3, 1, -1, 3>, std::__1::vector<at::Tensor,
+      std::__1::allocator<at::Tensor> > > >::train_Q<sgd::adam<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >,
+      sgd::identity_func>, callaback<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> > > >' requested here
+        ais.train_Q(1000000,ns,stepper,cb);
+            ^
+In file included from /Users/hwchen/Desktop/dcgan/ML_test.cxx:18:
+/Users/hwchen/Desktop/dcgan/optimize.h:47:8: error: call to function 'operator*' that is neither visible in the template
+      definition nor found by argument-dependent lookup
+                m = 0*pars;
+                     ^
+/Users/hwchen/Desktop/dcgan/ais.h:129:11: note: in instantiation of member function 'sgd::adam<std::__1::vector<at::Tensor,
+      std::__1::allocator<at::Tensor> >, sgd::identity_func>::init' requested here
+                stepper.init(pars);
+                        ^
+/Users/hwchen/Desktop/dcgan/ML_test.cxx:142:6: note: in instantiation of function template specialization
+      'ais::ais_KL<ais::Dist_template<Eigen::Array<double, -1, 3, 1, -1, 3>, std::__1::vector<at::Tensor,
+      std::__1::allocator<at::Tensor> > > >::train_Q<sgd::adam<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >,
+      sgd::identity_func>, callaback<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> > > >' requested here
+        ais.train_Q(1000000,ns,stepper,cb);
+            ^
+/Users/hwchen/Desktop/dcgan/neural_network.h:31:11: note: 'operator*' should be declared prior to the call site or in namespace
+      'at'
+Pars_type operator*(const int& a, const Pars_type& b)
+          ^
+In file included from /Users/hwchen/Desktop/dcgan/ML_test.cxx:18:
+/Users/hwchen/Desktop/dcgan/optimize.h:48:8: error: call to function 'operator*' that is neither visible in the template
+      definition nor found by argument-dependent lookup
+                v = 0*pars;
+                     ^
+/Users/hwchen/Desktop/dcgan/neural_network.h:31:11: note: 'operator*' should be declared prior to the call site or in namespace
+      'at'
+Pars_type operator*(const int& a, const Pars_type& b)
+          ^
+In file included from /Users/hwchen/Desktop/dcgan/ML_test.cxx:16:
+/Users/hwchen/Desktop/dcgan/ais.h:91:19: error: invalid operands to binary expression
+      ('std::__1::__vector_base<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >,
+      std::__1::allocator<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> > > >::value_type' (aka
+      'std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >') and 'double')
+                grad = gradk[0] * (a-wk[0]);
+                       ~~~~~~~~ ^ ~~~~~~~~~
+/Users/hwchen/Desktop/dcgan/ais.h:133:10: note: in instantiation of member function
+      'ais::ais_KL<ais::Dist_template<Eigen::Array<double, -1, 3, 1, -1, 3>, std::__1::vector<at::Tensor,
+      std::__1::allocator<at::Tensor> > > >::KL_grad' requested here
+                        this->KL_grad(g);
+                              ^
+/Users/hwchen/Desktop/dcgan/ML_test.cxx:142:6: note: in instantiation of function template specialization
+      'ais::ais_KL<ais::Dist_template<Eigen::Array<double, -1, 3, 1, -1, 3>, std::__1::vector<at::Tensor,
+      std::__1::allocator<at::Tensor> > > >::train_Q<sgd::adam<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >,
+      sgd::identity_func>, callaback<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> > > >' requested here
+        ais.train_Q(1000000,ns,stepper,cb);
+            ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:110:22: note: candidate function not viable: no known
+      conversion from 'std::__1::__vector_base<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >,
+      std::__1::allocator<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> > > >::value_type' (aka
+      'std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >') to 'const at::Tensor' for 1st argument
+AT_FORALL_BINARY_OPS(DEFINE_OPERATOR)
+                     ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:83:25: note: expanded from macro 'AT_FORALL_BINARY_OPS'
+_(+,x.add(y), y.add(x)) \
+                        ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:102:22: note: expanded from macro 'DEFINE_OPERATOR'
+static inline Tensor operator op(const Tensor & x, Scalar y) { \
+                     ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:110:22: note: candidate function not viable: no known
+      conversion from 'std::__1::__vector_base<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >,
+      std::__1::allocator<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> > > >::value_type' (aka
+      'std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >') to 'const at::Tensor' for 1st argument
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:83:25: note: expanded from macro 'AT_FORALL_BINARY_OPS'
+_(+,x.add(y), y.add(x)) \
+                        ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:99:22: note: expanded from macro 'DEFINE_OPERATOR'
+static inline Tensor operator op(const Tensor & x, const Tensor & y) { \
+                     ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:110:22: note: candidate function not viable: no known
+      conversion from 'std::__1::__vector_base<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >,
+      std::__1::allocator<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> > > >::value_type' (aka
+      'std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >') to 'c10::Scalar' for 1st argument
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:83:25: note: expanded from macro 'AT_FORALL_BINARY_OPS'
+_(+,x.add(y), y.add(x)) \
+                        ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:105:22: note: expanded from macro 'DEFINE_OPERATOR'
+static inline Tensor operator op(Scalar x, const Tensor & y) { \
+                     ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:590:1: note: 
+      candidate template ignored: could not match 'complex' against 'vector'
+operator*(const complex<_Tp>& __z, const complex<_Tp>& __w)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:650:1: note: 
+      candidate template ignored: could not match 'complex' against 'vector'
+operator*(const complex<_Tp>& __x, const _Tp& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:660:1: note: 
+      candidate template ignored: could not match 'complex<type-parameter-0-0>' against 'double'
+operator*(const _Tp& __x, const complex<_Tp>& __y)
+^
+In file included from /Users/hwchen/Desktop/dcgan/ML_test.cxx:16:
+/Users/hwchen/Desktop/dcgan/ais.h:94:21: error: invalid operands to binary expression
+      ('std::__1::__vector_base<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >,
+      std::__1::allocator<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> > > >::value_type' (aka
+      'std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >') and 'double')
+                        grad += gradk[k] * (a-wk[k]);
+                                ~~~~~~~~ ^ ~~~~~~~~~
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:110:22: note: candidate function not viable: no known
+      conversion from 'std::__1::__vector_base<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >,
+      std::__1::allocator<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> > > >::value_type' (aka
+      'std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >') to 'const at::Tensor' for 1st argument
+AT_FORALL_BINARY_OPS(DEFINE_OPERATOR)
+                     ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:83:25: note: expanded from macro 'AT_FORALL_BINARY_OPS'
+_(+,x.add(y), y.add(x)) \
+                        ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:102:22: note: expanded from macro 'DEFINE_OPERATOR'
+static inline Tensor operator op(const Tensor & x, Scalar y) { \
+                     ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:110:22: note: candidate function not viable: no known
+      conversion from 'std::__1::__vector_base<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >,
+      std::__1::allocator<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> > > >::value_type' (aka
+      'std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >') to 'const at::Tensor' for 1st argument
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:83:25: note: expanded from macro 'AT_FORALL_BINARY_OPS'
+_(+,x.add(y), y.add(x)) \
+                        ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:99:22: note: expanded from macro 'DEFINE_OPERATOR'
+static inline Tensor operator op(const Tensor & x, const Tensor & y) { \
+                     ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:110:22: note: candidate function not viable: no known
+      conversion from 'std::__1::__vector_base<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >,
+      std::__1::allocator<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> > > >::value_type' (aka
+      'std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >') to 'c10::Scalar' for 1st argument
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:83:25: note: expanded from macro 'AT_FORALL_BINARY_OPS'
+_(+,x.add(y), y.add(x)) \
+                        ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:105:22: note: expanded from macro 'DEFINE_OPERATOR'
+static inline Tensor operator op(Scalar x, const Tensor & y) { \
+                     ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:590:1: note: 
+      candidate template ignored: could not match 'complex' against 'vector'
+operator*(const complex<_Tp>& __z, const complex<_Tp>& __w)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:650:1: note: 
+      candidate template ignored: could not match 'complex' against 'vector'
+operator*(const complex<_Tp>& __x, const _Tp& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:660:1: note: 
+      candidate template ignored: could not match 'complex<type-parameter-0-0>' against 'double'
+operator*(const _Tp& __x, const complex<_Tp>& __y)
+^
+In file included from /Users/hwchen/Desktop/dcgan/ML_test.cxx:18:
+/Users/hwchen/Desktop/dcgan/optimize.h:60:13: error: call to function 'operator*' that is neither visible in the template
+      definition nor found by argument-dependent lookup
+                m = beta1 * m + (1 - beta1) * g;
+                          ^
+/Users/hwchen/Desktop/dcgan/ais.h:135:12: note: in instantiation of member function 'sgd::adam<std::__1::vector<at::Tensor,
+      std::__1::allocator<at::Tensor> >, sgd::identity_func>::step' requested here
+                        stepper.step(g,step);
+                                ^
+/Users/hwchen/Desktop/dcgan/ML_test.cxx:142:6: note: in instantiation of function template specialization
+      'ais::ais_KL<ais::Dist_template<Eigen::Array<double, -1, 3, 1, -1, 3>, std::__1::vector<at::Tensor,
+      std::__1::allocator<at::Tensor> > > >::train_Q<sgd::adam<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >,
+      sgd::identity_func>, callaback<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> > > >' requested here
+        ais.train_Q(1000000,ns,stepper,cb);
+            ^
+/Users/hwchen/Desktop/dcgan/neural_network.h:20:11: note: 'operator*' should be declared prior to the call site or in namespace
+      'at'
+Pars_type operator*(const double& a, const Pars_type& b)
+          ^
+In file included from /Users/hwchen/Desktop/dcgan/ML_test.cxx:18:
+/Users/hwchen/Desktop/dcgan/optimize.h:61:13: error: call to function 'operator*' that is neither visible in the template
+      definition nor found by argument-dependent lookup
+                v = beta2 * v + (1 - beta2) * g * g;
+                          ^
+/Users/hwchen/Desktop/dcgan/neural_network.h:20:11: note: 'operator*' should be declared prior to the call site or in namespace
+      'at'
+Pars_type operator*(const double& a, const Pars_type& b)
+          ^
+In file included from /Users/hwchen/Desktop/dcgan/ML_test.cxx:18:
+/Users/hwchen/Desktop/dcgan/optimize.h:62:19: error: call to function 'operator*' that is neither visible in the template
+      definition nor found by argument-dependent lookup
+                step = - alphat * m / (sqrt(v) + eps) ;
+                                ^
+/Users/hwchen/Desktop/dcgan/neural_network.h:20:11: note: 'operator*' should be declared prior to the call site or in namespace
+      'at'
+Pars_type operator*(const double& a, const Pars_type& b)
+          ^
+/Users/hwchen/Desktop/dcgan/ML_test.cxx:54:33: error: invalid operands to binary expression ('Pars_type'
+      (aka 'vector<torch::Tensor>') and 'Pars_type')
+                        pars_running = (1-beta)*pars + beta*pars_running;
+                                       ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~
+/Users/hwchen/Desktop/dcgan/ais.h:137:15: note: in instantiation of member function 'callaback<std::__1::vector<at::Tensor,
+      std::__1::allocator<at::Tensor> > >::operator()' requested here
+                        bool end = callback(i,pars,step,wk);
+                                   ^
+/Users/hwchen/Desktop/dcgan/ML_test.cxx:142:6: note: in instantiation of function template specialization
+      'ais::ais_KL<ais::Dist_template<Eigen::Array<double, -1, 3, 1, -1, 3>, std::__1::vector<at::Tensor,
+      std::__1::allocator<at::Tensor> > > >::train_Q<sgd::adam<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> >,
+      sgd::identity_func>, callaback<std::__1::vector<at::Tensor, std::__1::allocator<at::Tensor> > > >' requested here
+        ais.train_Q(1000000,ns,stepper,cb);
+            ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:110:22: note: candidate function not viable: no known
+      conversion from 'Pars_type' (aka 'vector<torch::Tensor>') to 'const at::Tensor' for 1st argument
+AT_FORALL_BINARY_OPS(DEFINE_OPERATOR)
+                     ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:82:33: note: expanded from macro 'AT_FORALL_BINARY_OPS'
+#define AT_FORALL_BINARY_OPS(_) \
+                                ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:99:22: note: expanded from macro 'DEFINE_OPERATOR'
+static inline Tensor operator op(const Tensor & x, const Tensor & y) { \
+                     ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:110:22: note: candidate function not viable: no known
+      conversion from 'Pars_type' (aka 'vector<torch::Tensor>') to 'const at::Tensor' for 1st argument
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:82:33: note: expanded from macro 'AT_FORALL_BINARY_OPS'
+#define AT_FORALL_BINARY_OPS(_) \
+                                ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:102:22: note: expanded from macro 'DEFINE_OPERATOR'
+static inline Tensor operator op(const Tensor & x, Scalar y) { \
+                     ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:110:22: note: candidate function not viable: no known
+      conversion from 'Pars_type' (aka 'vector<torch::Tensor>') to 'c10::Scalar' for 1st argument
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:82:33: note: expanded from macro 'AT_FORALL_BINARY_OPS'
+#define AT_FORALL_BINARY_OPS(_) \
+                                ^
+/Users/hwchen/Desktop/dcgan/libtorch/include/ATen/TensorOperators.h:105:22: note: expanded from macro 'DEFINE_OPERATOR'
+static inline Tensor operator op(Scalar x, const Tensor & y) { \
+                     ^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iterator:874:1: note: 
+      candidate template ignored: could not match 'reverse_iterator' against 'vector'
+operator+(typename reverse_iterator<_Iter>::difference_type __n, const reverse_iterator<_Iter>& __x)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iterator:1310:1: note: 
+      candidate template ignored: could not match 'move_iterator' against 'vector'
+operator+(typename move_iterator<_Iter>::difference_type __n, const move_iterator<_Iter>& __x)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iterator:1726:1: note: 
+      candidate template ignored: could not match '__wrap_iter' against 'vector'
+operator+(typename __wrap_iter<_Iter>::difference_type __n,
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:4051:1: note: 
+      candidate template ignored: could not match 'basic_string' against 'vector'
+operator+(const basic_string<_CharT, _Traits, _Allocator>& __lhs,
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:4064:1: note: 
+      candidate template ignored: could not match 'const _CharT *' against 'Pars_type' (aka 'vector<torch::Tensor>')
+operator+(const _CharT* __lhs , const basic_string<_CharT,_Traits,_Allocator>& __rhs)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:4076:1: note: 
+      candidate template ignored: could not match 'basic_string' against 'vector'
+operator+(_CharT __lhs, const basic_string<_CharT,_Traits,_Allocator>& __rhs)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:4088:1: note: 
+      candidate template ignored: could not match 'basic_string' against 'vector'
+operator+(const basic_string<_CharT, _Traits, _Allocator>& __lhs, const _CharT* __rhs)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:4100:1: note: 
+      candidate template ignored: could not match 'basic_string' against 'vector'
+operator+(const basic_string<_CharT, _Traits, _Allocator>& __lhs, _CharT __rhs)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:4114:1: note: 
+      candidate template ignored: could not match 'basic_string' against 'vector'
+operator+(basic_string<_CharT, _Traits, _Allocator>&& __lhs, const basic_string<_CharT, _Traits, _Allocator>& __rhs)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:4122:1: note: 
+      candidate template ignored: could not match 'basic_string' against 'vector'
+operator+(const basic_string<_CharT, _Traits, _Allocator>& __lhs, basic_string<_CharT, _Traits, _Allocator>&& __rhs)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:4130:1: note: 
+      candidate template ignored: could not match 'basic_string' against 'vector'
+operator+(basic_string<_CharT, _Traits, _Allocator>&& __lhs, basic_string<_CharT, _Traits, _Allocator>&& __rhs)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:4138:1: note: 
+      candidate template ignored: could not match 'const _CharT *' against 'Pars_type' (aka 'vector<torch::Tensor>')
+operator+(const _CharT* __lhs , basic_string<_CharT,_Traits,_Allocator>&& __rhs)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:4146:1: note: 
+      candidate template ignored: could not match 'basic_string' against 'vector'
+operator+(_CharT __lhs, basic_string<_CharT,_Traits,_Allocator>&& __rhs)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:4155:1: note: 
+      candidate template ignored: could not match 'basic_string' against 'vector'
+operator+(basic_string<_CharT, _Traits, _Allocator>&& __lhs, const _CharT* __rhs)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:4163:1: note: 
+      candidate template ignored: could not match 'basic_string' against 'vector'
+operator+(basic_string<_CharT, _Traits, _Allocator>&& __lhs, _CharT __rhs)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:531:1: note: 
+      candidate template ignored: could not match 'complex' against 'vector'
+operator+(const complex<_Tp>& __x, const complex<_Tp>& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:541:1: note: 
+      candidate template ignored: could not match 'complex' against 'vector'
+operator+(const complex<_Tp>& __x, const _Tp& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:551:1: note: 
+      candidate template ignored: could not match 'complex' against 'vector'
+operator+(const _Tp& __x, const complex<_Tp>& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:732:1: note: 
+      candidate function template not viable: requires single argument '__x', but 2 arguments were provided
+operator+(const complex<_Tp>& __x)
+^
+/Users/hwchen/Desktop/dcgan/ML_test.cxx:74:17: error: no member named 'abs' in 'std::__1::vector<at::Tensor,
+      std::__1::allocator<at::Tensor> >'
+                auto d = step.abs().matrix();
+                         ~~~~ ^
+1 warning and 10 errors generated.

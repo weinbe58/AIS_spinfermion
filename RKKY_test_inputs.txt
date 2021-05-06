@@ -1,0 +1,7 @@
+nBatch=1000
+N=4
+R=3
+nAdam=1000
+nSample=10000
+beta=8
+g=1
